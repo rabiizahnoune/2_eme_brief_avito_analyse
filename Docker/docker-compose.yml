@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest  # Utilisation de l'image officielle de PostgreSQL
+    container_name: immobilier_db  # Nom du conteneur
+    environment:
+      POSTGRES_USER: admin  # Utilisateur PostgreSQL plus simple
+      POSTGRES_PASSWORD: rajarabii1  # Mot de passe pour PostgreSQL
+      POSTGRES_DB: immobilier_db  # Nom de la base de données à créer
+    ports:
+      - "5433:5432"  # Expose le port 5432 pour la communication avec la base de données
+    volumes:
+      - immobilier_db_data:/var/lib/postgresql/data  # Persistance des données
+    networks:
+      - immobilier_network  # Réseau personnalisé pour isoler les services
+
+volumes:
+  immobilier_db_data:  # Définir un volume pour la persistance des données
+
+networks:
+  immobilier_network:  # Réseau personnalisé pour les services Docker
+    driver: bridge  # Type de réseau (par défaut 'bridge')
