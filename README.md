@@ -58,5 +58,5 @@ Le fichier `docker-compose.yml` configure un conteneur PostgreSQL avec les param
 ## Installation et Déploiement
 1. **Cloner le dépôt :**
    ```bash
-   git clone <URL_du_dépôt>
-   cd <nom_du_projet>
+   git clone https://github.com/rabiizahnoune/database_avito_data
+   cd <database_avito_data>
