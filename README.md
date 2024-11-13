@@ -60,3 +60,19 @@ Le fichier `docker-compose.yml` configure un conteneur PostgreSQL avec les param
    ```bash
    git clone https://github.com/rabiizahnoune/database_avito_data
    cd <database_avito_data>
+
+## Utilisation
+
+Une fois le conteneur PostgreSQL démarré et la base de données initialisée, vous pouvez utiliser SQLAlchemy pour interagir avec la base de données. Assurez-vous que les modèles sont correctement définis dans le fichier `models.py`, et que la connexion à la base est bien établie.
+
+### Connexion à la base de données et création d'une session
+
+Voici comment initialiser une session SQLAlchemy pour exécuter des requêtes :
+
+```python
+from sqlalchemy.orm import sessionmaker
+from models import Annonce, Ville, Equipement, AnnonceEquipement
+
+# Remplacez 'engine' par votre objet de connexion à la base de données
+Session = sessionmaker(bind=engine)
+session = Session()
