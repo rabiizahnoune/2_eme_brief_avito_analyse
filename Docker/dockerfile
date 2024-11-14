@@ -1,0 +1,17 @@
+# Utiliser une image de base Python
+FROM python:3.9-slim
+
+# Définir le répertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copier les fichiers locaux dans le conteneur
+COPY . .
+
+# Installer les dépendances depuis requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Exposer un port si nécessaire (par exemple, 5000 si vous avez une API ou un serveur)
+EXPOSE 5432
+
+# Exécuter uniquement config.py
+CMD ["python", "config.py"]
